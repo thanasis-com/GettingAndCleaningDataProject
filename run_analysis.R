@@ -14,7 +14,7 @@ train<-cbind(trainSet, subject_train, trainSetY)
 test<-cbind(testSet, subject_test, testSetY)
 dataSet<-rbind(train, test)
 
-#finds the columns that include "means()" or "std()" in their names and drops these columns
+#drops every column that does not include "means()" or "std()" in their names
 featureNames <- read.table("C:/Users/Thanasis/Desktop/UCI HAR Dataset/features.txt", quote="\"")
 rowsToSelect<-ifelse(grepl("mean()", featureNames$V2) | grepl("std()", featureNames$V2), TRUE, FALSE)
 drop<-NULL
